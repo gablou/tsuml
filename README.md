@@ -27,3 +27,31 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## test data :
+ class Person {
+
+  private _id: string;
+
+  protected name: string;
+
+  constructor() {
+    this._id = uuid.v4();
+  }
+
+  public getName(): string {
+    return this.name;
+  }
+  
+  public setName(name: string): void {
+    this.name = name;
+  }
+
+  public getId(): string {
+    return this._id;
+  }
+
+  public static build(): Person {
+    return new Person();
+  }
+}
