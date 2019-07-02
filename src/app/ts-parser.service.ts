@@ -24,14 +24,14 @@ export class TsParserService {
         return { name: tmp[1], type: tmp[2], visibility: 'protected' as UMLVisibility, isClassifier: false };
       }
     )));
-    methods.push(...(input.match(/^ *(public|)( static | |)(\w+)\((.*)\)(: |)(\w+|) {/gm).map(
+    methods.push(...(input.match(/^ *(public|private|protected|)( static | |)(\w+)\((.*)\)(: |)(\w+|) {/gm).map(
       line => {
-        const tmp = line.match(/^ *(public|)( static | |)(\w+)\((.*)\)(: |)(\w+|) {/);
+        const tmp = line.match(/^ *(public|private|protected|)( static | |)(\w+)\((.*)\)(: |)(\w+|) {/);
         return {
           name: tmp[3],
           parameters: tmp[4],
           returnType: tmp[6],
-          visibility: 'public' as UMLVisibility,
+          visibility: tmp[1] === '' ? 'public' as UMLVisibility : tmp[1] as UMLVisibility,
           isClassifier: tmp[2] === ' static '
         };
       }
