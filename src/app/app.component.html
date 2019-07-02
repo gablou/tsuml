@@ -5,3 +5,5 @@
   </h1>
 </div>
 <textarea name="input" row="30" cols="120" [(ngModel)]="textInput" (ngModelChange)="modelChanged($event)"></textarea>
+
+<app-umlclass-display [classModel]="umlmodel"></app-umlclass-display>

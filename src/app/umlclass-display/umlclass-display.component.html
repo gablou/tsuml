@@ -1,0 +1,25 @@
+<div *ngIf="classModel" class="uml-class">
+    <div class="class-title">
+        {{classModel.name}}
+    </div>
+    <div class="properties">
+        <div *ngFor="let property of classModel.properties">
+
+            <ng-container *ngTemplateOutlet="visibility;context:property"></ng-container>
+            <span [ngClass]="{'is-classifier': property.isClassifier}">{{property.name}}</span> :
+            {{property.type}}
+        </div>
+    </div>
+    <div class="methods">
+        <div *ngFor="let method of classModel.methods">
+            <ng-container *ngTemplateOutlet="visibility;context:method"></ng-container>
+            <span [ngClass]="{'is-classifier': method.isClassifier}">{{method.name}}</span>
+            ({{method.parameters}}) <ng-container *ngIf="method.returnType">: </ng-container>{{method.returnType}}
+        </div>
+    </div>
+</div>
+<ng-template #visibility let-vis="visibility">
+    <span *ngIf="vis === 'public'">+ </span>
+    <span *ngIf="vis === 'private'">- </span>
+    <span *ngIf="vis === 'protected'"># </span>
+</ng-template>

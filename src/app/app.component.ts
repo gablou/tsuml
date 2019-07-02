@@ -15,6 +15,5 @@ export class AppComponent {
 
   modelChanged(input: string) {
     this.umlmodel = this.tsParser.parseClass(input);
-    console.log(this.umlmodel);
   }
 }

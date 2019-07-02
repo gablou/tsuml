@@ -1,0 +1,19 @@
+.uml-class{
+    background-color: bisque;
+    width: 300px;
+    border: 1px solid brown;
+}
+
+.class-title{
+    text-align: center;
+    border: 1px solid brown;
+}
+
+.methods, .properties {
+    border: 1px solid brown; 
+    padding: 4px 8px;
+}
+
+.is-classifier{
+    text-decoration: underline;
+}

@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { UMLClassDisplayComponent } from './umlclass-display/umlclass-display.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UMLClassDisplayComponent
   ],
   imports: [
     BrowserModule,
